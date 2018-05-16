@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>    
+<link rel="stylesheet" href="bootstrap3/css/bootstrap.css"/>
+<link rel="stylesheet" href="style.css"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+    <title>My stats</title>
+<style>
+</style>
+</head>
+<body>
+   <% include templates/navigation.ejs %>
+	<div class="container">	
+		<div class="row">
+			<div class="jumbotron jumbotronmy col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>TIC TAC TOE</h1></div>
+
+<!--Game menu-->
+      <div id="game_menu">
+      <a class="menu-link" href="/"><button class="menu-btn menu-bttn col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-3  col-md-offset-3 mb">
+          Back to menu
+      </button></a>
+       </div>
+       <!--Game menu-->
+<!--Highscore-->
+<div class="well-my col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table class="table">
+      <thead>
+        <tr><th colspan="2" class="text-center" style="font-size:2em ">My personal stats</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Wins</th>
+          <td><%=mystats.Wins%></td>
+        </tr>
+        <tr>
+          <th>Draws</th>
+          <td><%=mystats.Draws%></td>
+         
+        </tr>
+        <tr>
+           <th>Loses</th>
+           <td><%=mystats.Loses%></td>
+        </tr>
+        <tr>
+          <th>Wins as X</th>
+          <td><%=mystats.Wins_as_x%></td>
+        </tr>
+        <tr>
+          <th>Draws as X</th>
+          <td><%=mystats.Draws_as_x%></td>
+        </tr>
+        <tr>
+            <th>Loses as X</th>
+             <td><%=mystats.Loses_as_x%></td>
+        </tr>
+        <tr>
+           <th>Wins as O</th>
+           <td><%=mystats.Wins_as_o%></td>
+        </tr>
+        <tr>
+         <th>Draws as O</th>
+          <td><%=mystats.Draws_as_o%></td>
+        </tr>
+         <tr>
+          <th>Loses as O</th>
+          <td><%=mystats.Loses_as_o%></td>
+         </tr>
+         <tr>
+           <th>Avarage turns taken per game</th>
+           <td><% if(mystats.Games_played!=0){ %>
+            <%=mystats.Turns_taken%>
+             <%} else{%>
+             Not yet played
+             <%}%>
+            </td>
+         </tr>
+         <tr>
+           <th>Avarage time spent per game (sec)</th>
+           <td><% if(mystats.Games_played!=0){ %>
+            <%=mystats.Time_spent%>
+             <%} else{%>
+                Not yet played
+             <%}%>
+           </td>
+         </tr>
+         <tr>
+           <th>Total games played</th>
+           <td><%=mystats.Games_played%></td>
+         </tr>
+       </tbody>
+    </table>
+</div>
+  <!--Highscore-->
+
+
+			
+		</div>	
+	</div>
+<script src="jquery/jquery.min.js"></script>
+<script language="javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+</body>
+</html>
+

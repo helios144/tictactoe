@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>    
+<link rel="stylesheet" href="bootstrap3/css/bootstrap.css"/>
+<script src="page.js"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+    <title>Register</title>
+<style>
+body {
+    color: grey;
+    background: url(background2.png) fixed center;
+    background-color: grey;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+/*.btn-lg{
+	height: 10%;
+}*/
+.container .row .jumbotronmy {
+	padding: 0px 0px 0px 0px;
+	width:100%;
+	color: white;
+	background-color:transparent;
+	
+}
+.jumbotronmy h1{
+	font-size: 7vw;
+	text-align: center;
+	width:100%;
+}
+.custom-register{
+   color:white;
+  opacity: 0.8;
+  background-color:#2a2b2d;
+}
+</style>
+</head>
+<body>
+     <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">TicTacToe</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <% if (username!==undefined){%><a href="/logoff"><%=username%> Logoff <span class="glyphicon glyphicon-log-out"></span></a></li> 
+        <% } else {%>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <li><a href="/register"><span class="glyphicon glyphicon-user"></span>Sign up</a></li>
+        <% } %>    
+    </ul>
+  </div>
+</nav>
+	<div class="container">	
+		<div class="row">
+			<div class="jumbotron jumbotronmy col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>TIC TAC TOE</h1></div>
+
+<div class="container" id="login" >
+  <div class="row">
+        <div class="span12">
+        <div class="" id="loginModal">
+              <div class="modal-body">
+                <div class="well-my">
+                  <h1>Register</h1>
+                  <div style="color:red"><%=error%></div>
+                      <form  action='' method="POST">
+                        <label>Username</label><br>
+                        <input type="text" id="username" name="username" value="" class="input-xlarge"><br>
+                        <label>Password</label><br>
+                        <input type="password" id="password" name="password" value="" class="input-xlarge"><br>
+                        <label>Type password again</label><br>
+                        <input type="password" id="passwordagain" name="passwordagain"  value="" class="input-xlarge"><br><br>
+                        <div>
+                          <button class="btn">Create Account</button>   
+                      </form>
+                </div>
+              </div>
+        </div>
+        </div>
+  </div>
+  </div>
+<!--Login-->
+		</div>	
+	</div>
+<script src="jquery/jquery.min.js"></script>
+<script language="javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function(){
+            var username, password;
+            $("#submit").click(function(){
+               username = $("#username").val();
+               password = $("#password").val();
+               passwordagain = $("#passwordagain").val();                
+                // Basic jQuery RESTFul API call
+                $.post("/register", {
+                    username: username,
+                    pass: password,
+                    passwordagain:again
+                });
+            });
+        });
+</script>
+</body>
+</html>
+

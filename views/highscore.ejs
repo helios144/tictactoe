@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>    
+   <link rel="stylesheet" href="bootstrap3/css/bootstrap.css"/>
+   <link rel="stylesheet" href="style.css"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta charset="UTF-8"/>
+   <title>Highscores</title>
+   <style>
+      #sound-button {
+          /*color: #ffffff;
+          
+          background-color: #000000;*/
+          border-radius: 15px;
+          border-color: #757575 #757575 #757575;
+      }
+      #sound-button:hover {
+         color: #ffffff;
+          background-color: #323232;
+
+          border-color: #757575 #757575 #757575;
+      }
+      #sound-button{
+        font-size: calc(1.1vh + 1.1vw);
+      }
+   </style>
+</head>
+<body>
+  <% include templates/navigation.ejs %>
+	<div class="container">	
+		<div class="row">
+			<div class="jumbotron jumbotronmy col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>TIC TAC TOE</h1></div>
+<!--Highscore-->
+<!--Game menu-->
+      <div id="game_menu">
+      <a class="menu-link" href="/"><button class="menu-btn menu-bttn col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-3  col-md-offset-3 mb">
+          Back to menu
+      </button></a>
+       </div>
+       <!--Game menu-->
+<div class="well-my col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table class="table">
+      <thead>
+         <tr><th colspan="5" class="text-center" style="font-size:2em ">Highscores</th></tr>
+        <tr>
+          <th>#</th>
+          <th>Username</th>
+          <th>Won</th>
+          <th>Draw</th>
+          <th>Lost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=1;i<=Object.keys(highscoress).length;i++){ %>
+        <tr>
+          <td><%=i%></td>
+          <td><%=highscoress[i].user_names%></td>
+          <td><%=highscoress[i].Wins%></td>
+          <td><%=highscoress[i].Draws%></td>
+          <td><%=highscoress[i].Loses%></td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+</div>
+  <!--Highscore-->
+  <!--all stats-->
+  <div class="well-my col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <table class="table">
+      <thead>
+        <tr><th colspan="3" class="text-center" style="font-size:2em ">Players combined achievements</th></tr>
+        <tr>
+          <th>Total Games played</th>
+          <th>Turns taken</th>
+          <th>Total time spent(sec)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><%=overall[0]%></td>
+          <td><%=overall[1]%></td>
+          <td><%=overall[2]%></td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  <!--Highscore-->
+  <!--all stats end-->
+		</div>	
+	</div>
+<script src="jquery/jquery.min.js"></script>
+<script language="javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+</body>
+</html>
+

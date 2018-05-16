@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>   
+<link rel="stylesheet" href="style.css"/> 
+<link rel="stylesheet" href="bootstrap3/css/bootstrap.css"/>
+  <meta name="description" content="This is an online PVP tictactoe game meant to spent some free time or when bored in lectures or classes">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+    <title>Play game</title>
+<style>
+#sound-button {
+    /*color: #ffffff;  
+    background-color: #000000;*/
+    position: relative;
+    left:0px;
+    border-radius: 15px;
+    border-color: #757575 #757575 #757575;
+}
+#sound-button:hover {
+   color: #ffffff;
+    background-color: #323232;
+
+    border-color: #757575 #757575 #757575;
+}
+#sound-button{
+  font-size: calc(1.1vh + 1.1vw);
+}
+.Online{
+	color:GreenYellow ;
+}
+.Ingame{
+	color:DeepSkyBlue;
+}
+.snd-btn{
+ color:black;
+}
+.modal-black{
+  color:white;
+  opacity: 1;
+  background-color:#222;
+}
+.modal-yes{
+  border:1px solid black;
+  background-color:#ffffff; 
+  color:#000000;
+}
+.modal-yes:hover{
+ background-color:#bcbaba;
+ border:1px solid white;
+}
+.modal-no{
+  border:1px solid white;
+  background-color:#000000; 
+  color:#ffffff;
+}
+.modal-no:hover{
+ background-color:#bcbaba;
+ border:1px solid black;
+}
+
+</style>
+</head>
+<body>
+	 <% include templates/navigation.ejs %>
+<!-- Modal -->
+  <div class="modal fade " id="invite" role="dialog">
+    <div class="modal-dialog ">
+      <!-- Modal content-->
+      <div class="modal-content modal-black">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" style="color:white">&times;</button>
+          <h4 class="modal-title">Game Invite</h4>
+        </div>
+        <div class="modal-body" >
+          <p id="invitetext"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class=" pull-left btn btn-success modal-yes" onClick="accept();" data-dismiss="modal">Accept</button>
+          <button type="button" class="btn btn-danger modal-no" data-dismiss="modal">Decline</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
+
+<div id="menu-lobby">
+	<div class="container">	
+		<div class="row">
+			<div class="jumbotron jumbotronmy col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>TIC TAC TOE</h1></div>
+
+			<!--Game menu-->
+			<div id="game_menu">
+			<a class="menu-link" href="/"><button class="menu-btn menu-bttn col-xs-12 col-sm-12 col-md-6 col-lg-6 col-lg-offset-3  col-md-offset-3 mb">
+					Back to menu
+			</button></a>
+		   </div>
+		   <!--Game menu-->
+		</div>	
+	</div>
+	<!--Highscore-->
+
+<div class="container">	
+		<div class="row">
+<div class="well-my col-xs-12 col-sm-12 col-md-6 col-lg-6 col-md-offset-3 col-lg-offset-3">
+    <table class="table ">
+      <thead>
+        <tr>
+ 		
+          <th>User</th>
+          <th>Status</th>
+          <th>Invite</th>
+        </tr>
+      </thead>
+      <tbody id="lobby">      
+      </tbody>
+    </table>
+</div>
+  <!--Highscore-->
+</div>
+</div>
+</div>
+	<canvas id="tictactoegame" ></canvas>
+	<button id="sound-button" type="button" class="btn btn-default btn-lg"> <span class="glyphicon glyphicon-volume-up"></span></button>
+<script src="jquery/jquery.min.js"></script>
+<script src="socket.io.js"></script>
+<script language="javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+<script src="game.js"></script>
+<script>
+$('#sound-button').click( function(){
+    if(mute==0)
+      {mute=1;
+      }
+    else {mute=0;}
+    $(this).find('span').toggleClass('glyphicon-volume-up glyphicon-volume-off');
+});
+</script>
+</body>
+</html>
+

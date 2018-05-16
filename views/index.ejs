@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>    
+<link rel="stylesheet" href="bootstrap3/css/bootstrap.css"/>
+<link rel="stylesheet" href="style.css"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8"/>
+    <title>Tic tac toe</title>
+<style>
+#sound-button {
+    /*color: #ffffff;
+    
+    background-color: #000000;*/
+    border-radius: 15px;
+    border-color: #757575 #757575 #757575;
+}
+#sound-button:hover {
+   color: #ffffff;
+    background-color: #323232;
+
+    border-color: #757575 #757575 #757575;
+}
+#sound-button{
+  font-size: calc(1.1vh + 1.1vw);
+}
+</style>
+</head>
+<body>
+      <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">TicTacToe</a>
+    </div>
+  
+    <ul class="nav navbar-nav navbar-right">
+      <li>
+        <% if (username!==undefined){%><a href="/logoff"><%=username%> Logoff <span class="glyphicon glyphicon-log-out"></span></a></li> 
+        <% } else {%>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login/<span class="glyphicon glyphicon-user"></span>Sign UP</a></li>
+        <% } %>    
+    </ul>
+  </div>
+</nav>
+	<div class="container">	
+		<div class="row">
+			<div class="jumbotron jumbotronmy col-xs-12 col-sm-12 col-md-12 col-lg-12"><h1>TIC TAC TOE</h1></div>
+
+
+			<!--Game menu-->
+			<div id="game_menu">
+			<a class="menu-link " href="/game"><button class="menu-bttn menu-btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12 mb">
+					Play
+			</button></a>
+			<a class="menu-link" href="/highscore"><button class="menu-bttn menu-btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12 mb">
+					High Score
+			</button></a>
+			<a class="menu-link" href="/mystats"><button class="menu-bttn menu-btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12 mb ">
+					My stats
+			</button></a>
+			<a class="menu-link" href="/logoff"><button class="menu-bttn menu-btn btn-lg col-xs-12 col-sm-12 col-md-12 col-lg-12 mb">
+					Log off
+			</button></a>
+		   </div>
+		   <!--Game menu-->
+		</div>	
+	</div>
+<script src="jquery/jquery.min.js"></script>
+<script language="javascript" src="bootstrap3/js/bootstrap.min.js"></script>
+</body>
+</html>
+
